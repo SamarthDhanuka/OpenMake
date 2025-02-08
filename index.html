@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenMake</title>
+    <link rel="shortcut icon" href="images/logo2.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #1e1e1e;
+            --link: #0047ff;
+            --secondary: #0047ff;
+            --warning: #eb4335;
+            --white: #ffffff;
+            --disabled: #aaaaaa;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="nav.js"></script> -->
+</head>
+
+<body>
+
+    <div id="navbar-placeholder">
+        <nav class="flex w100">
+            <div class="flex spacebetween acenter w100">
+                <div class="flex gap8 openmake acenter w100">
+                    <img src="images/newlogo.png" alt="">
+                    <a href="index.html" id="navlogo">OpenMake</a>
+                </div>
+                <div id="navburger" class="flexcol jcenter">
+                    <svg id="navclose" class="active" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                        viewBox="0 0 40 40" fill="none">
+                        <rect class="lowbar" x="8" y="24" width="24" height="4" fill="#1E1E1E" />
+                        <rect class="midbar" x="8" y="18" width="24" height="4" fill="#1E1E1E" />
+                        <rect class="topbar" x="8" y="12" width="24" height="4" fill="#1E1E1E" />
+                    </svg>
+                    <svg id="navopen" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                        fill="none">
+                        <rect x="13" y="10" width="24" height="4" transform="rotate(45 13 10)" fill="#1E1E1E" />
+                        <rect x="10" y="27" width="24" height="4" transform="rotate(-45 10 27)" fill="#1E1E1E" />
+                    </svg>
+                </div>
+            </div>
+            <div id="navlist" class="flex bodytext acenter w100">
+                <a href="products.html" class="navitem" id="nav-products">Products</a>
+                <a href="upload.html" class="navitem" id="nav-upload">Upload</a>
+                <a href="licenses.html" class="navitem" id="nav-licenses">Licenses</a>
+                <a href="https://www.dsource.in/" class="navitem" id="nav-dsource">D'source</a>
+                <a href="signin.html" class="navitem" id="nav-signin">Sign in</a>
+            </div>
+        </nav>
+    </div>
+
+    <main class="flexcol acenter" style="max-width: 1600px; margin: auto;">
+        <div class="w100">
+            <h1 class="subtext">Open Make is an initiative to empower DIY enthusiasts and small and medium enterprises to solve design
+                problems with the materials available in local hardware stores across India with simple tools and
+                processes.</h1>
+        </div>
+        <section id="challenges" class="w100 flexcol">
+            <h1>Challenges</h1>
+            <div class="grid gap20">
+                <div class="span8 challengeimg border1">
+                    <img src="images/challenge.png" alt="" class="">
+                </div>
+                <div class="flexcol span4 gap16">
+                    <h2>Create<sup>3</sup></h2>
+                    <div class="flexcol gap8 h100">
+                        <div class="flex gap8">
+                            <!-- <div class="tag border1 flex acenter">Chair/Stool</div>
+                            <div class="tag border1 flex acenter">Table lamp</div>
+                            <div class="tag border1 flex acenter">Toys</div> -->
+                            <button class="tag border1 flex acenter">Chair/Stool</button>
+                            <button class="tag border1 flex acenter">Table lamp</button>
+                            <button class="tag border1 flex acenter">Toys</button>
+                        </div>
+                        <p>
+                            Unleash your creativity across three unique categories—chairs, table lamps, and toys—in this
+                            challenge. Submit your innovative product designs that redefine everyday objects!
+                        </p>
+                        <p>
+                            Winners will be awarded and featured!
+                        </p>
+                    </div>
+                    <button class="secondaryButton">Participate</button>
+                </div>
+            </div>
+        </section>
+        <section id="categories" class="w100 flexcol">
+            <div class="flex spacebetween">
+                <h1>Categories</h1>
+                <a href="" class="link">View all</a>
+            </div>
+            <div class="grid gap20">
+                <div class="flexcol card span4">
+                    <img src="images/categories/furniture.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Furniture</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/categories/lamps.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Lamps</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/categories/decor.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Decor</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/categories/storage.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Storage</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/categories/device_accs.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Device accessories</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/categories/toys.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Toys</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section id="materials" class="w100 flexcol">
+            <div class="flex spacebetween">
+                <h1>Materials</h1>
+                <a href="" class="link">View all</a>
+            </div>
+            <div class="grid gap20">
+                <div class="flexcol card span4">
+                    <img src="images/materials/solid wood1.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Solid wood</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/materials/metal1.webp" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Metal</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/materials/ceramics1.webp" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Ceramics</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/materials/cloth1.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Cloth</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/materials/plastic1.webp" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Plastic</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/materials/3dprint1.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">3D print</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section id="products" class="w100 flexcol">
+            <div class="flex spacebetween">
+                <h1>Products</h1>
+                <a href="" class="link">View all</a>
+            </div>
+            <div class="grid gap20">
+                <a href="nordiclogframe.html" class="span4">
+                    <div class="flexcol card span4">
+                        <img src="images/products/log.png" alt="" class="border1">
+                        <div class="cardtext flex spacebetween">
+                            <p class="bodytext">Nordic log frame</p>
+                            <div class="bodytext flex acenter adapt">
+                                <div class="svgimg"></div>
+                                <p class="subtext">
+                                    8
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </a>
+                <div class="flexcol card span4">
+                    <img src="images/products/lineal.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Lineal stool</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/products/origami.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Origami chair</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/products/vase.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Tamil letterform vase</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/products/park.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Parkscape chair</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexcol card span4">
+                    <img src="images/products/rack.png" alt="" class="border1">
+                    <div class="cardtext flex spacebetween">
+                        <p class="bodytext">Bamboo hangrack</p>
+                        <div class="bodytext flex acenter adapt">
+                            <div class="svgimg"></div>
+                            <p class="subtext">
+                                8
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

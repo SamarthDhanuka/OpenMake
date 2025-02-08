@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenMake</title>
+    <link rel="shortcut icon" href="images/logo2.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #1e1e1e;
+            --link: #0047ff;
+            --secondary: #0047ff;
+            --warning: #eb4335;
+            --white: #ffffff;
+            --disabled: #aaaaaa;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="upload.css">
+    <!-- <script src="nav.js"></script> -->
+    <script src="uploadjs/files.js"></script>
+    <script src="uploadjs/modelviewer.js"></script>
+    <script src="uploadjs/sketchfab.js"></script>
+    <script src="uploadjs/uploadindex.js"></script>
+
+    <script src="uploadjs/coverimg.js"></script>
+    <script src="uploadjs/processimg.js"></script>
+    <script src="uploadjs/addStep.js"></script>
+
+
+    <!-- Three.js core library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Three.js loaders -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+
+    <!-- OrbitControls for model interaction -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+
+<body>
+    <div id="navbar-placeholder">
+        <nav class="flex w100">
+            <div class="flex spacebetween acenter w100">
+                <div class="flex gap8 openmake acenter w100">
+                    <img src="images/newlogo.png" alt="">
+                    <a href="index.html" id="navlogo">OpenMake</a>
+                </div>
+                <div id="navburger" class="flexcol jcenter">
+                    <svg id="navclose" class="active" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                        viewBox="0 0 40 40" fill="none">
+                        <rect class="lowbar" x="8" y="24" width="24" height="4" fill="#1E1E1E" />
+                        <rect class="midbar" x="8" y="18" width="24" height="4" fill="#1E1E1E" />
+                        <rect class="topbar" x="8" y="12" width="24" height="4" fill="#1E1E1E" />
+                    </svg>
+                    <svg id="navopen" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                        fill="none">
+                        <rect x="13" y="10" width="24" height="4" transform="rotate(45 13 10)" fill="#1E1E1E" />
+                        <rect x="10" y="27" width="24" height="4" transform="rotate(-45 10 27)" fill="#1E1E1E" />
+                    </svg>
+                </div>
+            </div>
+            <div id="navlist" class="flex bodytext acenter w100">
+                <a href="products.html" class="navitem" id="nav-products">Products</a>
+                <a href="upload.html" class="navitem bold" id="nav-upload">Upload</a>
+                <a href="licenses.html" class="navitem" id="nav-licenses">Licenses</a>
+                <a href="https://www.dsource.in/" class="navitem" id="nav-dsource">D'source</a>
+                <a href="signin.html" class="navitem" id="nav-signin">Sign in</a>
+            </div>
+        </nav>
+    </div>
+
+    <main class="grid">
+        <div id="index" class="flexcol span2 gap24">
+            <h1>Index</h1>
+            <div class="flexcol gap16">
+                <a href="#overviewupload" id="index-overview">Overview</a>
+                <a href="#model3d" id="index-3dmodel">3D Model</a>
+                <a href="#requpload" id="index-requirements">Requirements</a>
+                <a href="#processupload" id="index-process">Process</a>
+                <a href="#fileupload" id="index-files">Files</a>
+            </div>
+        </div>
+        <div id="submission">
+            <div class="flexcol gap8">
+                <button class="tertiaryButton">Save as draft</button>
+                <button class="primaryButton">Submit</button>
+            </div>
+        </div>
+        <div id="content" class="span10 gap80 flexcol">
+            <div class="flexcol w100 gap8">
+                <h1>Upload a design by filling in the details below.</h1>
+                <p class="subtext red">Sections marked with an asterisk (*) are mandatory.</p>
+            </div>
+            <section id="overviewupload" class="w100 flexcol" style="margin-top: -20px;">
+                <div class="flexcol gap8">
+                    <div class="flex">
+                        <h1 class="red">*</h1>
+                        <h1>Overview</h1>
+                    </div>
+                    <p class="subtext">This section contains the basic information about your product.</p>
+                </div>
+                <div class="subgrid">
+                    <div class="span5 flexcol gap8">
+                        <div class="flex gap8">
+                            <label style="padding-top: 2px;">
+                                <input type="checkbox" name="" id="metafield" onclick="isAdapted()">
+                            </label>
+                            <p class="w100 blue subtext">Select this checkbox if this product is a modification /
+                                adaptation of another open source product.</p>
+                        </div>
+                        <label>
+                            <input type="url" name="" id="adaptationURL" placeholder="Enter URL of original product"
+                                class="hidden">
+                        </label>
+                    </div>
+
+                </div>
+                <div class="gap8 subgrid">
+                    <div class="flexcol span6 gap20">
+                        <div class="flexcol gap8">
+                            <p class="subtext">Add product title</p>
+                            <label>
+                                <input type="text" name="prodoverview" id="prodname">
+                            </label>
+                        </div>
+                        <div class="flex gap8 wrap">
+                            <dialog id="pcatdialog">
+                                <div class="flexcol gap20">
+                                    <h3>Choose the category of the product</h3>
+                                    <p class="subtext">You can choose only 1 category</p>
+                                    <ul class="flex wrap gap8">
+                                        <div class="tagList flex acenter gap8">Furniture<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Decor<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Lamps<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Transportation<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Stationery<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Medical eqpt<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Kitchen accs<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Device accs<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Games & Toys<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Organisers<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Electronics<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Other<button
+                                                class="removeTag hidden">×</button></div>
+                                    </ul>
+                                    <div class="modal-buttons">
+                                        <button class="doneButton primaryButton">Done</button>
+                                    </div>
+                                </div>
+                            </dialog>
+                            <button class="tagButton" id="primaryCategory">Choose category</button>
+
+                            <dialog id="pmatdialog">
+                                <div class="flexcol gap20">
+                                    <h3>Choose the primary material of the product</h3>
+                                    <p class="subtext">Select upto 2 dominant materials of the product. You can select
+                                        the entire list in the requirements section</p>
+                                    <ul class="flex wrap gap8">
+                                        <div class="tagList flex acenter gap8">Solid wood<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Processed wood<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Sheet metal<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Metal pipe<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Metal block<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Clay<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Paper<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Cardboard<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Bamboo<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Plastic<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Fabric<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Electronics<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">3D print<button
+                                                class="removeTag hidden">×</button></div>
+                                        <div class="tagList flex acenter gap8">Other<button
+                                                class="removeTag hidden">×</button></div>
+                                    </ul>
+                                    <div class="modal-buttons">
+                                        <button class="doneButton primaryButton">Done</button>
+                                    </div>
+                                </div>
+                            </dialog>
+                            <button class="tagButton" id="primaryMaterial">Choose primary material</button>
+                        </div>
+                        <div class="flexcol gap8 h100">
+                            <p class="subtext">Add description</p>
+                            <!-- <textarea id="proddesc"></textarea> -->
+                            <div id="proddesc" contenteditable>
+
+                            </div>
+                        </div>
+                        <div class="flexcol gap8" style="padding-top: 16px;">
+                            <dialog id="licenseDialog">
+                                <div class="flexcol gap20">
+                                    <h3>Choose a license</h3>
+                                    <p class="subtext"><a href="https://creativecommons.org/share-your-work/cclicenses/"
+                                            class="link" target="_blank" rel="noopener noreferrer">Creative Commons Licenses</a>
+                                         gives everyone a
+                                        standardized way to grant the public permission to use their creative work under
+                                        copyright law.</p>
+                                    <div class="flexcol gap8">
+                                        <p class="subtext">
+                                            Each license is a combination of these attributes:
+                                        </p>
+                                        <div class="flexcol">
+                                            <div class="flex gap4">
+                                                <img src="icons/CC/by.xlarge.png" alt="" class="licenseIcon">
+                                                <p class="subtext BY">BY: Credit must be given to the creator.</p>
+                                            </div>
+                                            <div class="flex gap4">
+                                                <img src="icons/CC/sa.xlarge.png" alt="" class="licenseIcon">
+                                                <p class="subtext SA">SA: Adaptations must be shared under the same
+                                                    terms.</p>
+                                            </div>
+                                            <div class="flex gap4">
+                                                <img src="icons/CC/nc.xlarge.png" alt="" class="licenseIcon">
+                                                <p class="subtext NC">NC: Only noncommercial uses of the work are
+                                                    permitted.</p>
+                                            </div>
+                                            <div class="flex gap4">
+                                                <img src="icons/CC/nd.xlarge.png" alt="" class="licenseIcon">
+                                                <p class="subtext ND">ND: No derivatives or adaptations of the work are
+                                                    permitted.</p>
+                                            </div>
+                                            <div class="flex gap4">
+                                                <!-- <img src="" alt="" class="licenseIcon"> -->
+                                                <p class="subtext CC0">CC0: No conditions.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="bold">Choose one of the following licenses</p>
+                                    <div class="flex wrap gap16">
+                                        <img src="images/CC/by.png" alt="CC BY" class="license BY">
+                                        <img src="images/CC/by-sa.png" alt="CC BY-SA" class="license BY SA ">
+                                        <img src="images/CC/by-nc.png" alt="CC BY-NC" class="license BY NC ">
+                                        <img src="images/CC/by-nc-sa.png" alt="CC BY-NC-SA" class="license BY SA NC">
+                                        <img src="images/CC/by-nd.png" alt="CC BY-ND" class="license BY ND">
+                                        <img src="images/CC/by-nc-nd.png" alt="CC BY-NC-ND" class="license BY NC ND">
+                                        <img src="images/CC/cc-zero.png" alt="CC0" class="license CC0">
+                                    </div>
+
+                                    
+                                    <div class="flex spacebetween w100 modal-buttons">
+                                        <button class="doneButton primaryButton">Done</button>
+                                    </div>
+                                </div>
+                            </dialog>
+                            <div class="flex w100 gap16">
+                                <button id="chooseLicense" class="addButton w100">Choose license</button>
+                                <button class="addButton w100">Add contributors</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4 flexcol gap8">
+                        <p class="subtext">Add cover image</p>
+                        <!-- Image Preview (click to upload) -->
+                        <div class="flex" style="background-color: var(--primary);" id="dp">
+                            <img id="displayImage" src="images/placeholder.png" alt="Click to upload an image"
+                                class="border05" />
+                            <!-- Hidden File Input -->
+                            <input type="file" id="displayInput" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- <section id="model3d" class="w100 flexcol">
+                <div class="flexcol gap8">
+                    <h1>3D Model</h1>
+                    <p class="subtext">You can upload a 3D model of your product from <a href="https://sketchfab.com/feed" class="link">Sketchfab</a>.</p>
+                </div>
+                <button id="addModelButton" class="addButton w100">Add 3D Model &#40;stl, obj, glb, gltf&#41;</button>
+                <input type="file" id="modelInput" accept=".glb, .stl, .obj, .gltf" style="display: none;" />
+                
+                <div id="modelViewerContainer" class="hidden">
+                    <canvas id="threeCanvas"></canvas>
+                    <p id="modelName" class="model-name"></p>
+                    <button id="deleteModelButton" class="delete-model-button hidden">Delete Model</button>
+                    <button id="resetViewButton" class="reset-view-button hidden">Reset View</button>
+                </div>
+            </section> -->
+            <section id="model3d" class="w100 flexcol">
+                <div class="flexcol gap8">
+                    <h1>3D Model</h1>
+                    <p class="subtext">You can upload a 3D model of your product from <a
+                            href="https://sketchfab.com/" class="link" target="_blank" rel="noopener noreferrer">Sketchfab</a>.</p>
+                </div>
+                <button id="addModelButton" class="addButton w100">Embed 3D Model</button>
+
+                <dialog id="embedModal">
+                    <div class="flexcol w100 gap20">
+                        <h3>Add Sketchfab Embed Code</h3>
+                        <div class="paragraph">
+                            <p class="subtext">Upload your model on <a href="https://sketchfab.com/"
+                                    class="link" target="_blank" rel="noopener noreferrer">Sketchfab</a>. Once uploaded, open the model and copy its embed code
+                                (not same as URL) which can be found next to the Download 3D model button.</p>
+                            <p class="subtext">You can learn more about uploading your 3D model <a
+                                    href="https://support.fab.com/s/article/Uploading-3D-Models" class="link" target="_blank" rel="noopener noreferrer">here</a>.
+                            </p>
+                        </div>
+                        <div class="flexcol gap8">
+                            <textarea id="embedCodeInput" rows="4"
+                                placeholder="Enter Sketchfab embed code here"></textarea>
+                            <button id="insertEmbedButton" class="secondaryButton">Load Model</button>
+                        </div>
+                        <iframe id="embedPreview" class="hidden" frameborder="0" allowfullscreen></iframe>
+                        <div class="modal-buttons">
+                            <button id="cancelEmbedButton" class="tertiaryButton">Cancel</button>
+                            <button id="doneEmbedButton" class="primaryButton">Insert</button>
+                        </div>
+                    </div>
+                </dialog>
+
+                <div id="modelViewerContainer" class="hidden flexcol gap8">
+                    <div class="flex acenter spacebetween">
+                        <p id="modelName" contenteditable="true" class="model-name"
+                            placeholder="Click to enter model name"></p>
+                        <button class="deleteButton" id="deleteModelButton"><svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 -960 960 960">
+                                <path
+                                    d="M292.31-140q-29.92 0-51.12-21.19Q220-182.39 220-212.31V-720h-40v-60h180v-35.38h240V-780h180v60h-40v507.69Q740-182 719-161q-21 21-51.31 21H292.31ZM680-720H280v507.69q0 5.39 3.46 8.85t8.85 3.46h375.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46V-720ZM376.16-280h59.99v-360h-59.99v360Zm147.69 0h59.99v-360h-59.99v360ZM280-720v520-520Z" />
+                            </svg></button>
+                    </div>
+                    <iframe id="embedViewer" class="embed-viewer" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section id="requpload" class="w100 flexcol">
+                <div class="flexcol gap8">
+                    <div class="flex">
+                        <h1 class="red">*</h1>
+                        <h1>Requirements</h1>
+                    </div>
+                    <p class="subtext">Add all the tools and materials that will be needed to make your product.</p>
+                </div>
+                <div class="gap16 flexcol">
+                    <div class="gap8 flexcol">
+                        <p>Materials required</p>
+                        <div class="flex gap8">
+                            <button class="tagButton">Add materials</button>
+                        </div>
+                    </div>
+                    <div class="gap8 flexcol">
+                        <p>Tools required</p>
+                        <div class="flex gap8">
+                            <button class="tagButton">Add tools</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="processupload" class="w100 flexcol">
+                <div class="flexcol gap8">
+                    <div class="flex">
+                        <h1 class="red">*</h1>
+                        <h1>Process</h1>
+                    </div>
+                    <p class="subtext">Add a step-wise process of making the product. Break down the process into simple
+                        steps. Include necessary images and videos with each step to help makers make the product.</p>
+                </div>
+                <div id="stepsContainer" class="gap40 flexcol">
+                    <div class="uploadblock gap8 flexcol">
+                        <div class="flex">
+                            <h3>Step 1</h3>
+                            <div class="flex gap8">
+                                <button class="upButton" data-tooltip="Move this step one step up">↑</button>
+                                <button class="downButton" data-tooltip="Move this step one step down">↓</button>
+                                <button class="plusButton" data-tooltip="Add a step above this step">＋</button>
+                                <button class="deleteButton" data-tooltip="Delete this step">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path
+                                            d="M292.31-140q-29.92 0-51.12-21.19Q220-182.39 220-212.31V-720h-40v-60h180v-35.38h240V-780h180v60h-40v507.69Q740-182 719-161q-21 21-51.31 21H292.31ZM680-720H280v507.69q0 5.39 3.46 8.85t8.85 3.46h375.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46V-720ZM376.16-280h59.99v-360h-59.99v360Zm147.69 0h59.99v-360h-59.99v360ZM280-720v520-520Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="subgrid">
+                            <div class="flexcol span5 gap8">
+                                <p class="subtext">Add step description</p>
+                                <div class="process textarea" contenteditable>
+
+                                </div>
+                            </div>
+
+                            <div class="flexcol span5 gap8">
+                                <p class="subtext">Add step media</p>
+                                <div class="flex" style="background-color: var(--primary);">
+                                    <img class="carouselPlaceholder imagePreview border05" src="images/placeholder.png"
+                                        alt="Click to add media" />
+                                </div>
+                                <div class="carousel-controls hidden flex gap24">
+                                    <div class="flex gap8">
+                                        <button class="prevImage carousel-button upButton">←</button>
+                                        <button class="nextImage carousel-button upButton">→</button>
+                                    </div>
+                                    <button class="editMedia carousel-button smallButton">Edit</button>
+                                </div>
+                            </div>
+
+                            <!-- Dialog box for managing media -->
+                            <dialog class="imageDialog">
+                                <div class="flexcol w100 gap20">
+                                    <h3>Manage carousel media</h3>
+                                    <div class="flexcol gap4">
+                                        <p class="subtext">Add media from device:</p>
+                                        <button class="addImagesButton secondaryButton">Add media</button>
+                                    </div>
+                                    <input type="file" class="imageInput" multiple accept="image/*,video/*"
+                                        style="display: none;" />
+
+                                    <div class="flexcol gap4">
+                                        <p class="subtext">Or enter a Youtube video URL:</p>
+                                        <div class="flex gap8">
+                                            <input type="url" class="videoUrlInput" placeholder="https://example.com" />
+                                            <button class="addVideoButton smallButton"
+                                                style="white-space: nowrap;">Add Video</button>
+                                        </div>
+                                    </div>
+
+                                    <table class="image-list flex w100">
+                                        <tbody class="flexcol w100"></tbody>
+                                    </table>
+                                    <div class="modal-buttons">
+                                        <button class="doneButton primaryButton">Done</button>
+                                    </div>
+                                    <!-- <button class="closeDialogButton">Close</button> -->
+                                </div>
+                            </dialog>
+
+
+
+                        </div>
+                    </div>
+                    <div class="gap8">
+                        <button class="addButton add-step-button w100">Add step</button>
+                    </div>
+                </div>
+            </section>
+            <section id="fileupload" class="w100 flexcol">
+                <div class="flexcol gap8">
+                    <h1>Files</h1>
+                    <p class="subtext">Add any additional files that will be useful to other makers such as CAD
+                        drawings, 3d models, images etc. Your process and license PDFs will be added automatically after
+                        you submit your product.</p>
+                </div>
+                <div class="gap8">
+                    <label class="addButton">
+                        <input type="file" name="fileinput" id="fileinput" multiple>
+                        Add Files
+                    </label>
+                </div>
+
+                <!-- This is where we'll show the file details for all files -->
+                <div id="filesContainer" class="filesContainer">
+                    <!-- File details will be dynamically added here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <script src="uploadjs/tags.js"></script>
+    <script>
+        function isAdapted() {
+            const urlInput = document.getElementById('adaptationURL');
+            const checked = document.getElementById('metafield');
+            if (checked.checked)
+                urlInput.classList.remove('hidden');
+            else
+                urlInput.classList.add('hidden');
+        }</script>
+
+</body>
+
+
+</html>

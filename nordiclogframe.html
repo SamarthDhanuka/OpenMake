@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenMake</title>
+    <link rel="shortcut icon" href="images/logo2.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #1e1e1e;
+            --link: #0047ff;
+            --secondary: #0047ff;
+            --warning: #eb4335;
+            --white: #ffffff;
+            --disabled: #aaaaaa;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="upload.css"> -->
+    <link rel="stylesheet" href="product.css">
+    <!-- <script src="nav.js"></script> -->
+    <script src="prodjs/prod3d.js"></script>
+    <script src="prodjs/prodstepimg.js"></script>
+    <script src="prodjs/prodindex.js"></script>
+
+
+    <!-- Three.js core library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Three.js loaders -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+
+    <!-- OrbitControls for model interaction -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+
+<body>
+    <div id="navbar-placeholder">
+        <nav class="flex w100">
+            <div class="flex spacebetween acenter w100">
+                <div class="flex gap8 openmake acenter w100">
+                    <img src="images/newlogo.png" alt="">
+                    <a href="index.html" id="navlogo">OpenMake</a>
+                </div>
+                <div id="navburger" class="flexcol jcenter">
+                    <svg id="navclose" class="active" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                        viewBox="0 0 40 40" fill="none">
+                        <rect class="lowbar" x="8" y="24" width="24" height="4" fill="#1E1E1E" />
+                        <rect class="midbar" x="8" y="18" width="24" height="4" fill="#1E1E1E" />
+                        <rect class="topbar" x="8" y="12" width="24" height="4" fill="#1E1E1E" />
+                    </svg>
+                    <svg id="navopen" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                        fill="none">
+                        <rect x="13" y="10" width="24" height="4" transform="rotate(45 13 10)" fill="#1E1E1E" />
+                        <rect x="10" y="27" width="24" height="4" transform="rotate(-45 10 27)" fill="#1E1E1E" />
+                    </svg>
+                </div>
+            </div>
+            <div id="navlist" class="flex bodytext acenter w100">
+                <a href="products.html" class="navitem bold" id="nav-products">Products</a>
+                <a href="upload.html" class="navitem" id="nav-upload">Upload</a>
+                <a href="licenses.html" class="navitem" id="nav-licenses">Licenses</a>
+                <a href="https://www.dsource.in/" class="navitem" id="nav-dsource">D'source</a>
+                <a href="signin.html" class="navitem" id="nav-signin">Sign in</a>
+            </div>
+        </nav>
+    </div>
+
+    <main class="grid">
+        <div id="index" class="flexcol span2 gap24">
+            <h1>Index</h1>
+            <div class="flexcol gap16">
+                <a href="#overview" id="index-overview">Overview</a>
+                <a href="#model3d" id="index-3dmodel">3D Model</a>
+                <a href="#requirements" id="index-requirements">Requirements</a>
+                <a href="#process" id="index-process">Process</a>
+                <a href="#files" id="index-files">Files</a>
+                <a href="#adaptations" id="index-adaptations">Adaptations</a>
+                <a href="#comments" id="index-comments">Comments</a>
+            </div>
+        </div>
+
+        <div id="content" class="span10 gap80 flexcol">
+
+            <section id="overview" class="w100 flexcol">
+                <h1>Overview</h1>
+                <div class="gap8 subgrid">
+                    <div class="flexcol span6 gap16">
+                        <div class="flexcol gap8">
+                            <h2>Nordic log frame</h2>
+                        </div>
+                        <div class="flex gap8 wrap">
+                            <button class="tag">Decor</button>
+                            <button class="tag">Wood</button>
+                        </div>
+                        <div class="span4 flexcol gap8 border1 onlyphone" id="dp">
+                            <img id="displayImage" src="images/products/log.png" alt="">
+                        </div>
+                        <div class="flexcol gap8 h100">
+                            <p class="">This frame draws inspiration from the Nordic log homes. It can hold
+                                pictures of dimensions 6” x 4”. It is self standing but it can be modified to be used as
+                                a hanging frame as well. </p>
+                        </div>
+                        <div class="flex gap8 pcol" style="padding-top: 16px;">
+
+                            <button class="bigBlackButton w100">
+                                <div class="flex acenter gap16">
+                                    <img src="icons/person.png" alt="" class="icon">
+                                    Samarth Dhanuka
+                                </div>
+                            </button>
+                            <button class="bigBlackButton w100">
+                                <div class="flex acenter gap16">
+                                    <img src="images/CC/by-nc-sa.png" alt="">
+                                    CC BY-NC-SA
+                                </div>
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="span4 flexcol gap8 border1 onlylarge" id="dp">
+                        <img id="displayImage" src="images/products/log.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <!-- <section id="model3d" class="w100 flexcol">
+                <h1>3D Model</h1>                
+                <div id="modelViewerContainer">
+                    <canvas id="threeCanvas"></canvas>
+                    <p id="modelName" class="model-name"></p>
+                    <button id="resetViewButton" class="reset-view-button hidden">Reset View</button>
+                </div>
+            </section> -->
+            <section id="model3d" class="w100 flexcol">
+                <h1>3D Model</h1>
+                <div id="modelViewerContainer" class="flexcol gap8">
+                    <div class="sketchfab-embed-wrapper w100"> <iframe id="embed-viewer" title="Nordic Log Photoframe"
+                            frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+                            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
+                            execution-while-out-of-viewport execution-while-not-rendered web-share
+                            src="https://sketchfab.com/models/b93a85e61dcd49b280a7163bc17ad3a9/embed"> </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section id="requirements" class="w100 flexcol">
+                <h1>Requirements</h1>
+                <div class="gap16 flexcol">
+                    <div class="gap8 flexcol">
+                        <h3>Materials required</h3>
+                        <div class="flex wrap gap8">
+                            <button class="tag flex gap8 acenter"><span>Solid wood</span><span
+                                    class="subtext">800x26x20</span></button>
+                            <button class="tag flex gap8 acenter"><span>MDF</span><span
+                                    class="subtext">152x102x6</span></button>
+                            <button class="tag flex gap8 acenter"><span>Flexipoint tabs</span><span class="subtext">8
+                                    pieces</span></button>
+                            <button class="tag">Glue</button>
+                            <button class="tag">Polish</button>
+                        </div>
+                    </div>
+                    <div class="gap8 flexcol">
+                        <h3>Tools required</h3>
+                        <div class="flex wrap gap8">
+                            <button class="tag">Chisel</button>
+                            <button class="tag">Saw</button>
+                            <button class="tag">Mallet</button>
+                            <button class="tag">Bench vice</button>
+                            <button class="tag">Sandpapers</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="process" class="w100 flexcol">
+                <h1>Process</h1>
+                <div id="stepsContainer" class="gap40 flexcol">
+
+                    <!-- Step block here -->
+                    <div class="stepblock gap8 flexcol" id="step1">
+                        <div class="subgrid">
+                            <div class="flexcol span5 gap8 paragraph">
+                                <h3>Step 1</h3>
+                                <p class="">All the measurements in the steps and the drawing images are given in
+                                    inches. </p>
+                                <p>Cut out four blocks of solid wood according to the given dimensions. Notice
+                                    that two blocks have a length of 6 3/4” and two have a length of 8 3/4”. </p>
+                                <p>
+                                    You can use a band-saw or a table saw for doing so. Hand-held tools may be used as
+                                    well.</p>
+                            </div>
+                            <div class="flexcol span5 gap8">
+                                <div class="flex carousel" data-step="2">
+                                    <img class="border05 carousel-item active" src="../photo frame/images/step 1.png"
+                                        alt="Step 1">
+                                    <img class="border05 carousel-item" src="../photo frame/images/step 1- blocks.svg"
+                                        alt="Step 1 drawings">
+                                </div>
+                                <div class="flex gap8">
+                                    <button class="prevImage carousel-button upButton" disabled>←</button>
+                                    <button class="nextImage carousel-button upButton">→</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step block here -->
+                    <div class="stepblock gap8 flexcol" id="step2">
+                        <div class="subgrid">
+                            <div class="flexcol span5 gap8 paragraph">
+                                <h3>Step 2</h3>
+                                <p class="">Give a radius to the lengths of the top faces (edges of length 6 3/4” and 8
+                                    3/4”). Make sure the face is completely rounded.</p>
+                                <p>
+                                    This can be done by either sanding it using sandpaper, sanding machine or a table
+                                    router of appropriate radius. </p>
+                            </div>
+                            <div class="flexcol span5 gap8">
+                                <div class="flex carousel" data-step="2">
+                                    <img class="border05 carousel-item active" src="../photo frame/images/step 2.png"
+                                        alt="Step 2">
+                                    <img class="border05 carousel-item" src="../photo frame/images/step 2- radius.svg"
+                                        alt="Step 2 drawings">
+                                </div>
+                                <div class="flex gap8">
+                                    <button class="prevImage carousel-button upButton" disabled>←</button>
+                                    <button class="nextImage carousel-button upButton">→</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step block here -->
+                    <div class="stepblock gap8 flexcol" id="step3">
+                        <div class="subgrid">
+                            <div class="flexcol span5 gap8 paragraph">
+                                <h3>Step 3</h3>
+                                <p class="">To join the pieces together, we will be using a cross-lap joint. For this,
+                                    create notches of width 3/4” on the wooden blocks according to the mentioned
+                                    dimensions. Note that the notches are created on the curved face for the pieces of
+                                    length 8 3/4” and the notches for the 6 3/4” length pieces are on the bottom face
+                                    (face opposite to the curved face).</p>
+                                <p>
+                                    Accuracy is extremely important in this step to ensure a tight fit when the pieces
+                                    are joined together. You may use a chisel to manually carve out the notch or use a
+                                    sawing machines such as table saw or band saw.</p>
+                            </div>
+                            <div class="flexcol span5 gap8">
+                                <div class="flex carousel" data-step="3">
+                                    <img class="border05 carousel-item active" src="../photo frame/images/step 3.png"
+                                        alt="Step 3">
+                                    <img class="border05 carousel-item" src="../photo frame/images/step 3- notch.svg"
+                                        alt="Step 3 drawings">
+                                </div>
+                                <div class="flex gap8">
+                                    <button class="prevImage carousel-button upButton" disabled>←</button>
+                                    <button class="nextImage carousel-button upButton">→</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step block here -->
+                    <div class="stepblock gap8 flexcol" id="step4">
+                        <div class="subgrid">
+                            <div class="flexcol span5 gap8 paragraph">
+                                <h3>Step 4</h3>
+                                <p class="">Use a chisel to cut out the portion (shaded region) that will hold the
+                                    photograph. Make sure that the cuts are sharp so that the photo sits flat in it.
+                                </p>
+                                <p>
+                                    Use a bench-vice to hold the piece in place. You can also use additional wooden
+                                    pieces in between the frame piece and the vice to avoid the vice from directly
+                                    gripping the frame and leaving marks.</p>
+                            </div>
+                            <div class="flexcol span5 gap8">
+                                <div class="flex carousel" data-step="4">
+                                    <img class="border05 carousel-item active" src="../photo frame/images/step 4.png"
+                                        alt="Step 4">
+                                    <img class="border05 carousel-item"
+                                        src="../photo frame/images/step 4- chisel slit.svg" alt="Step 4 drawings">
+                                </div>
+                                <div class="flex gap8">
+                                    <button class="prevImage carousel-button upButton" disabled>←</button>
+                                    <button class="nextImage carousel-button upButton">→</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step block here -->
+                    <div class="stepblock gap8 flexcol" id="step5">
+                        <div class="subgrid">
+                            <div class="flexcol span5 gap8 paragraph">
+                                <h3>Step 5</h3>
+                                <p class="">You can glaze/clearcoat the pieces before or after this step.</p>
+                                <p>
+                                    Put all the pieces together as shown. If the pieces were cut with accurate
+                                    measurements, you may be able to fit them tightly without the the need for any
+                                    adhesive. However, you may use strong wood adhesive for sticking the pieces
+                                    together. If there are gaps left, you can use wood filler (glue + sawdust) to fill
+                                    the gap.</p>
+                            </div>
+                            <div class="flexcol span5 gap8">
+                                <div class="flex carousel" data-step="5">
+                                    <img class="border05 carousel-item active" src="../photo frame/images/step 4.1.png"
+                                        alt="Step 5">
+                                    <img class="border05 carousel-item" src="../photo frame/images/step 4.2.png"
+                                        alt="Step 5">
+                                    <img class="border05 carousel-item" src="../photo frame/images/step 5- join.svg"
+                                        alt="Step 5 drawings">
+                                </div>
+                                <div class="flex gap8">
+                                    <button class="prevImage carousel-button upButton" disabled>←</button>
+                                    <button class="nextImage carousel-button upButton">→</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step block here -->
+                    <div class="stepblock gap8 flexcol" id="step6">
+                        <div class="subgrid">
+                            <div class="flexcol span5 gap8 paragraph">
+                                <h3>Step 6</h3>
+                                <p class="">Add photo-frame points (flexipoint tabs) to the frame. You may use
+                                    alternatives such as turn-buttons.</p>
+                                <p>
+                                    Cut a rectangular MDF piece of given dimensions to use as the back cover of the
+                                    frame. You can use any other suitable material as well.</p>
+                            </div>
+                            <div class="flexcol span5 gap8">
+                                <div class="flex carousel" data-step="6">
+                                    <img class="border05 carousel-item active"
+                                        src="../photo frame/images/step 5.1- points.png" alt="Step 6">
+                                    <img class="border05 carousel-item" src="../photo frame/images/step 6.png"
+                                        alt="Step 6">
+                                    <img class="border05 carousel-item" src="../photo frame/images/step 6- mdf.svg"
+                                        alt="Step 6 drawings">
+                                </div>
+                                <div class="flex gap8">
+                                    <button class="prevImage carousel-button upButton" disabled>←</button>
+                                    <button class="nextImage carousel-button upButton">→</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step block here -->
+                    <div class="stepblock gap8 flexcol" id="step7">
+                        <div class="subgrid">
+                            <div class="flexcol span5 gap8 paragraph">
+                                <h3>Step 7</h3>
+                                <p class="">Now you can add a photo and the back cover and close the frame-points to
+                                    secure the photograph.</p>
+                                <p>
+                                    You can make modifications to the frame based on how you want to make it stand or to
+                                    hang on a wall.</p>
+                            </div>
+                            <div class="flexcol span5 gap8">
+                                <div class="flex carousel" data-step="7">
+                                    <img class="border05 carousel-item active" src="../photo frame/images/final.png"
+                                        alt="Step 7">
+                                    <img class="border05 carousel-item" src="../photo frame/images/final back.png"
+                                        alt="Step 7">
+                                    <img class="border05 carousel-item" src="../photo frame/images/exploded.png"
+                                        alt="Exploded view of model">
+                                </div>
+                                <div class="flex gap8">
+                                    <button class="prevImage carousel-button upButton" disabled>←</button>
+                                    <button class="nextImage carousel-button upButton">→</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+            <section id="files" class="w100 flexcol">
+                <h1>Files</h1>
+                <div id="filesContainer" class="filesContainer">
+                    <div class="fileDetails">
+                        <p>PDF of the process</p>
+                        <a href="" class="fileLink">process.pdf</a>
+                        <p class="fileDate">6th Sept, 2024</p>
+                        <button class="downloadFile" onclick="location.href=''">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                                fill="none">
+
+                                <path
+                                    d="M30.1283 33.7664L35.4338 28.461L34.4617 27.4885L30.8333 31.1168V22.7973H29.4229V31.1168L25.795 27.4885L24.8225 28.461L30.1283 33.7664ZM24.4229 39.166V37.7556H35.8333V39.166H24.4229ZM9.93583 32.4993C9.29583 32.4993 8.72986 32.2534 8.23792 31.7614C7.74597 31.2695 7.5 30.7035 7.5 30.0635V6.60185C7.5 5.96185 7.74597 5.39588 8.23792 4.90393C8.72986 4.41199 9.29583 4.16602 9.93583 4.16602H21.7479L30.8333 13.2514V19.0793H29.4229V13.9098H21.0896V5.57643H9.93583C9.67944 5.57643 9.44444 5.68324 9.23083 5.89685C9.01722 6.11046 8.91042 6.34546 8.91042 6.60185V30.0635C8.91042 30.3199 9.01722 30.5549 9.23083 30.7685C9.44444 30.9821 9.67944 31.0889 9.93583 31.0889H20.705V32.4993H9.93583Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="fileDetails">
+                        <p>License file</p>
+                        <a href="" class="fileLink">cc-by-nc-sa.pdf</a>
+                        <p class="fileDate">6th Sept, 2024</p>
+                        <button class="downloadFile" onclick="location.href=''">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                                fill="none">
+
+                                <path
+                                    d="M30.1283 33.7664L35.4338 28.461L34.4617 27.4885L30.8333 31.1168V22.7973H29.4229V31.1168L25.795 27.4885L24.8225 28.461L30.1283 33.7664ZM24.4229 39.166V37.7556H35.8333V39.166H24.4229ZM9.93583 32.4993C9.29583 32.4993 8.72986 32.2534 8.23792 31.7614C7.74597 31.2695 7.5 30.7035 7.5 30.0635V6.60185C7.5 5.96185 7.74597 5.39588 8.23792 4.90393C8.72986 4.41199 9.29583 4.16602 9.93583 4.16602H21.7479L30.8333 13.2514V19.0793H29.4229V13.9098H21.0896V5.57643H9.93583C9.67944 5.57643 9.44444 5.68324 9.23083 5.89685C9.01722 6.11046 8.91042 6.34546 8.91042 6.60185V30.0635C8.91042 30.3199 9.01722 30.5549 9.23083 30.7685C9.44444 30.9821 9.67944 31.0889 9.93583 31.0889H20.705V32.4993H9.93583Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="fileDetails">
+                        <p>All drawing files</p>
+                        <a href="../photo frame/drawings.zip" class="fileLink">drawings.zip</a>
+                        <p class="fileDate">6th Sept, 2024</p>
+                        <button class="downloadFile" onclick="location.href='../photo frame/drawings.zip'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                                fill="none">
+
+                                <path
+                                    d="M30.1283 33.7664L35.4338 28.461L34.4617 27.4885L30.8333 31.1168V22.7973H29.4229V31.1168L25.795 27.4885L24.8225 28.461L30.1283 33.7664ZM24.4229 39.166V37.7556H35.8333V39.166H24.4229ZM9.93583 32.4993C9.29583 32.4993 8.72986 32.2534 8.23792 31.7614C7.74597 31.2695 7.5 30.7035 7.5 30.0635V6.60185C7.5 5.96185 7.74597 5.39588 8.23792 4.90393C8.72986 4.41199 9.29583 4.16602 9.93583 4.16602H21.7479L30.8333 13.2514V19.0793H29.4229V13.9098H21.0896V5.57643H9.93583C9.67944 5.57643 9.44444 5.68324 9.23083 5.89685C9.01722 6.11046 8.91042 6.34546 8.91042 6.60185V30.0635C8.91042 30.3199 9.01722 30.5549 9.23083 30.7685C9.44444 30.9821 9.67944 31.0889 9.93583 31.0889H20.705V32.4993H9.93583Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="fileDetails">
+                        <p>Mesh 3D model</p>
+                        <a href="photo_frame.stl" class="fileLink">logframe.stl</a>
+                        <p class="fileDate">6th Sept, 2024</p>
+                        <button class="downloadFile" onclick="location.href='photo frame.stl'">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+
+                                <path
+                                    d="M30.1283 33.7664L35.4338 28.461L34.4617 27.4885L30.8333 31.1168V22.7973H29.4229V31.1168L25.795 27.4885L24.8225 28.461L30.1283 33.7664ZM24.4229 39.166V37.7556H35.8333V39.166H24.4229ZM9.93583 32.4993C9.29583 32.4993 8.72986 32.2534 8.23792 31.7614C7.74597 31.2695 7.5 30.7035 7.5 30.0635V6.60185C7.5 5.96185 7.74597 5.39588 8.23792 4.90393C8.72986 4.41199 9.29583 4.16602 9.93583 4.16602H21.7479L30.8333 13.2514V19.0793H29.4229V13.9098H21.0896V5.57643H9.93583C9.67944 5.57643 9.44444 5.68324 9.23083 5.89685C9.01722 6.11046 8.91042 6.34546 8.91042 6.60185V30.0635C8.91042 30.3199 9.01722 30.5549 9.23083 30.7685C9.44444 30.9821 9.67944 31.0889 9.93583 31.0889H20.705V32.4993H9.93583Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="fileDetails">
+                        <p>Shapr3d software file</p>
+                        <a href="Photo frame.shapr" class="fileLink">logframe.shapr</a>
+                        <p class="fileDate">6th Sept, 2024</p>
+                        <button class="downloadFile" onclick="location.href='photo frame.shapr'">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+
+                                <path
+                                    d="M30.1283 33.7664L35.4338 28.461L34.4617 27.4885L30.8333 31.1168V22.7973H29.4229V31.1168L25.795 27.4885L24.8225 28.461L30.1283 33.7664ZM24.4229 39.166V37.7556H35.8333V39.166H24.4229ZM9.93583 32.4993C9.29583 32.4993 8.72986 32.2534 8.23792 31.7614C7.74597 31.2695 7.5 30.7035 7.5 30.0635V6.60185C7.5 5.96185 7.74597 5.39588 8.23792 4.90393C8.72986 4.41199 9.29583 4.16602 9.93583 4.16602H21.7479L30.8333 13.2514V19.0793H29.4229V13.9098H21.0896V5.57643H9.93583C9.67944 5.57643 9.44444 5.68324 9.23083 5.89685C9.01722 6.11046 8.91042 6.34546 8.91042 6.60185V30.0635C8.91042 30.3199 9.01722 30.5549 9.23083 30.7685C9.44444 30.9821 9.67944 31.0889 9.93583 31.0889H20.705V32.4993H9.93583Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section id="adaptations" class="w100 flexcol">
+                <div class="flexcol gap8">
+                    <h1>Adaptations</h1>
+                    <p class="subtext">If you have made changes to this product and wish to share it, share it as an
+                        adaptation. </p>
+                </div>
+                <div id="adaptList" class="flex gap40 w100">
+                    <button id="addAdaptation" class="flexcol adaptcard gap8">
+                        <div class="flex acenter jcenter w100 h100"><svg xmlns="http://www.w3.org/2000/svg" width="120"
+                                height="120" viewBox="0 0 120 120" fill="none">
+                                <path opacity="0.4" d="M62.0002 0L62.0002 120M0 59.337H120" stroke="#0047FF"
+                                    stroke-width="4" />
+                            </svg></div>
+                        Share an adaptation
+                    </button>
+                    <button class="flexcol adaptcard gap8">
+                        <img src="images/products/shelf.png" alt="">
+                        <p class="bold">Wall Shelf</p>
+                        <p class="">Frame is given a depth so that it can hold showpieces instead of pictures.</p>
+                    </button>
+                    <button class="flexcol adaptcard gap8">
+                        <img src="images/products/glass.png" alt="">
+                        <p class="bold">Crosslap Photoframe</p>
+                        <p class="">Added provisions to add a glass screen in front of the picture to keep it safe from
+                            dust & scratches.</p>
+                    </button>
+                    <button class="flexcol adaptcard gap8">
+                        <img src="images/products/shelf.png" alt="">
+                        <p class="bold">Wall Shelf</p>
+                        <p class="">Frame is given a depth so that it can hold showpieces instead of pictures.</p>
+                    </button>
+                    <button class="flexcol adaptcard gap8">
+                        <img src="images/products/glass.png" alt="">
+                        <p class="bold">Crosslap Photoframe</p>
+                        <p class="">Added provisions to add a glass screen in front of the picture to keep it safe from
+                            dust & scratches.</p>
+                    </button>
+
+                </div>
+            </section>
+            <section id="comments" class="w100 flexcol">
+                <div class="flexcol gap8">
+                    <h1>Comments</h1>
+                    <p class="subtext">Add a comment to appreciate the project, ask questions, and share images if you
+                        have built this product.</p>
+                </div>
+                <div class="flexcol gap40">
+                    <div class="flexcol gap16">
+                        <div id="commentbox" class="flex gap16">
+                            <img src="icons/person.png" alt="" class="personicon">
+                            <textarea name="" id="" placeholder="Add a comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="usercomment flex gap16">
+                        <img src="icons/person.png" alt="" class="personicon">
+                        <div class="flexcol">
+                            <p class="subtext">Manish Verma</p>
+                            <p>Great product. Easy to recreate. Made some changes in the materials used but the design
+                                looks great.</p>
+                        </div>
+                    </div>
+                    <div class="usercomment flex gap16">
+                        <img src="icons/person.png" alt="" class="personicon">
+                        <div class="flexcol">
+                            <p class="subtext">Vaibhav Jangid</p>
+                            <p>Can someone help me in modifying this so that it can hang on a wall without any strings
+                                being visible.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+
+    <div id="imageModal" class="modal hidden">
+        <span class="closeModal">&times;</span>
+        <div class="modalImageWrapper">
+            <img class="modalContent" id="fullImage">
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('navburger').addEventListener('click', function () {
+            this.classList.toggle('active');  // Toggle the parent class for visibility control
+            const nav = document.getElementsByTagName('nav')[0].classList.toggle('autoH');
+        });
+    </script>
+</body>
+
+
+</html>
