@@ -64,11 +64,11 @@
                 </div>
             </div>
             <div id="navlist" class="flex bodytext acenter w100">
-                <a href="products.html" class="navitem" id="nav-products">Products</a>
-                <a href="upload.html" class="navitem bold" id="nav-upload">Upload</a>
-                <a href="licenses.html" class="navitem" id="nav-licenses">Licenses</a>
+                <a href="nordiclogframe.html" class="navitem" id="nav-products">Demo Product</a>
+                <a href="upload.html" class="navitem" id="nav-upload"> <b>Upload</b></a>
+                <a href="licenses.html" class="navitem disabled" id="nav-licenses">Licenses</a>
                 <a href="https://www.dsource.in/" class="navitem" id="nav-dsource">D'source</a>
-                <a href="signin.html" class="navitem" id="nav-signin">Sign in</a>
+                <a href="signin.html" class="navitem disabled" id="nav-signin">Sign in</a>
             </div>
         </nav>
     </div>
@@ -84,12 +84,7 @@
                 <a href="#fileupload" id="index-files">Files</a>
             </div>
         </div>
-        <div id="submission">
-            <div class="flexcol gap8">
-                <button class="tertiaryButton">Save as draft</button>
-                <button class="primaryButton">Submit</button>
-            </div>
-        </div>
+
         <div id="content" class="span10 gap80 flexcol">
             <div class="flexcol w100 gap8">
                 <h1>Upload a design by filling in the details below.</h1>
@@ -219,8 +214,9 @@
                                 <div class="flexcol gap20">
                                     <h3>Choose a license</h3>
                                     <p class="subtext"><a href="https://creativecommons.org/share-your-work/cclicenses/"
-                                            class="link" target="_blank" rel="noopener noreferrer">Creative Commons Licenses</a>
-                                         gives everyone a
+                                            class="link" target="_blank" rel="noopener noreferrer">Creative Commons
+                                            Licenses</a>
+                                        gives everyone a
                                         standardized way to grant the public permission to use their creative work under
                                         copyright law.</p>
                                     <div class="flexcol gap8">
@@ -230,31 +226,34 @@
                                         <div class="flexcol">
                                             <div class="flex gap4">
                                                 <img src="icons/CC/by.xlarge.png" alt="" class="licenseIcon">
-                                                <p class="subtext BY">BY: Credit must be given to the creator.</p>
+                                                <p class="subtext BY"><b>BY:</b> Credit must be given to the creator.
+                                                </p>
                                             </div>
                                             <div class="flex gap4">
                                                 <img src="icons/CC/sa.xlarge.png" alt="" class="licenseIcon">
-                                                <p class="subtext SA">SA: Adaptations must be shared under the same
+                                                <p class="subtext SA"><b>SA:</b> Adaptations must be shared under the
+                                                    same
                                                     terms.</p>
                                             </div>
                                             <div class="flex gap4">
                                                 <img src="icons/CC/nc.xlarge.png" alt="" class="licenseIcon">
-                                                <p class="subtext NC">NC: Only noncommercial uses of the work are
+                                                <p class="subtext NC"><b>NC:</b> Only noncommercial uses of the work are
                                                     permitted.</p>
                                             </div>
                                             <div class="flex gap4">
                                                 <img src="icons/CC/nd.xlarge.png" alt="" class="licenseIcon">
-                                                <p class="subtext ND">ND: No derivatives or adaptations of the work are
+                                                <p class="subtext ND"><b>ND:</b> No derivatives or adaptations of the
+                                                    work are
                                                     permitted.</p>
                                             </div>
                                             <div class="flex gap4">
                                                 <!-- <img src="" alt="" class="licenseIcon"> -->
-                                                <p class="subtext CC0">CC0: No conditions.</p>
+                                                <p class="subtext CC0"><b>CC0:</b> No conditions.</p>
                                             </div>
                                         </div>
                                     </div>
                                     <p class="bold">Choose one of the following licenses</p>
-                                    <div class="flex wrap gap16">
+                                    <div class="flex wrap col2 gap16">
                                         <img src="images/CC/by.png" alt="CC BY" class="license BY">
                                         <img src="images/CC/by-sa.png" alt="CC BY-SA" class="license BY SA ">
                                         <img src="images/CC/by-nc.png" alt="CC BY-NC" class="license BY NC ">
@@ -264,7 +263,7 @@
                                         <img src="images/CC/cc-zero.png" alt="CC0" class="license CC0">
                                     </div>
 
-                                    
+
                                     <div class="flex spacebetween w100 modal-buttons">
                                         <button class="doneButton primaryButton">Done</button>
                                     </div>
@@ -272,7 +271,7 @@
                             </dialog>
                             <div class="flex w100 gap16">
                                 <button id="chooseLicense" class="addButton w100">Choose license</button>
-                                <button class="addButton w100">Add contributors</button>
+                                <button class="addButton w100" disabled>Add contributors</button>
                             </div>
                         </div>
                     </div>
@@ -306,8 +305,8 @@
             <section id="model3d" class="w100 flexcol">
                 <div class="flexcol gap8">
                     <h1>3D Model</h1>
-                    <p class="subtext">You can upload a 3D model of your product from <a
-                            href="https://sketchfab.com/" class="link" target="_blank" rel="noopener noreferrer">Sketchfab</a>.</p>
+                    <p class="subtext">You can upload a 3D model of your product from <a href="https://sketchfab.com/"
+                            class="link" target="_blank" rel="noopener noreferrer">Sketchfab</a>.</p>
                 </div>
                 <button id="addModelButton" class="addButton w100">Embed 3D Model</button>
 
@@ -315,11 +314,13 @@
                     <div class="flexcol w100 gap20">
                         <h3>Add Sketchfab Embed Code</h3>
                         <div class="paragraph">
-                            <p class="subtext">Upload your model on <a href="https://sketchfab.com/"
-                                    class="link" target="_blank" rel="noopener noreferrer">Sketchfab</a>. Once uploaded, open the model and copy its embed code
+                            <p class="subtext">Upload your model on <a href="https://sketchfab.com/" class="link"
+                                    target="_blank" rel="noopener noreferrer">Sketchfab</a>. Once uploaded, open the
+                                model and copy its embed code
                                 (not same as URL) which can be found next to the Download 3D model button.</p>
                             <p class="subtext">You can learn more about uploading your 3D model <a
-                                    href="https://support.fab.com/s/article/Uploading-3D-Models" class="link" target="_blank" rel="noopener noreferrer">here</a>.
+                                    href="https://support.fab.com/s/article/Uploading-3D-Models" class="link"
+                                    target="_blank" rel="noopener noreferrer">here</a>.
                             </p>
                         </div>
                         <div class="flexcol gap8">
@@ -361,13 +362,13 @@
                     <div class="gap8 flexcol">
                         <p>Materials required</p>
                         <div class="flex gap8">
-                            <button class="tagButton">Add materials</button>
+                            <button class="tagButton" disabled>Add materials</button>
                         </div>
                     </div>
                     <div class="gap8 flexcol">
                         <p>Tools required</p>
                         <div class="flex gap8">
-                            <button class="tagButton">Add tools</button>
+                            <button class="tagButton" disabled>Add tools</button>
                         </div>
                     </div>
                 </div>
@@ -435,8 +436,8 @@
                                         <p class="subtext">Or enter a Youtube video URL:</p>
                                         <div class="flex gap8">
                                             <input type="url" class="videoUrlInput" placeholder="https://example.com" />
-                                            <button class="addVideoButton smallButton"
-                                                style="white-space: nowrap;">Add Video</button>
+                                            <button class="addVideoButton smallButton" style="white-space: nowrap;">Add
+                                                Video</button>
                                         </div>
                                     </div>
 
@@ -479,6 +480,12 @@
                 </div>
             </section>
         </div>
+        <div id="submission">
+            <div class="flexcol gap8">
+                <button class="tertiaryButton">Save as draft</button>
+                <button class="primaryButton">Submit</button>
+            </div>
+        </div>
     </main>
 
 
@@ -491,7 +498,14 @@
                 urlInput.classList.remove('hidden');
             else
                 urlInput.classList.add('hidden');
-        }</script>
+        }
+    </script>
+    <script>
+        document.getElementById('navburger').addEventListener('click', function () {
+            this.classList.toggle('active');  // Toggle the parent class for visibility control
+            const nav = document.getElementsByTagName('nav')[0].classList.toggle('autoH');
+        });
+    </script>
 
 </body>
 

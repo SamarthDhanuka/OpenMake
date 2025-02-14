@@ -236,6 +236,16 @@ h3 {
     display: flex;
     align-items: center;
 }
+.addButton:disabled {
+    border: 1px solid var(--disabled);
+    background-color: var(--white);
+    color: var(--disabled);
+}
+.tagButton:disabled {
+    border: 1px solid var(--disabled);
+    background-color: var(--white);
+    color: var(--disabled);
+}
 
 sup {
     font-size: 20px;
@@ -398,10 +408,17 @@ nav {
 .navitem {
     color: var(--primary);
 }
+.disabled{
+    color: var(--disabled);
+}
 
 .navitem:hover {
     color: var(--secondary);
     transition: color 200ms;
+}
+.disabled:hover {
+    cursor: default;
+    color: var(--disabled);
 }
 
 main {
@@ -768,7 +785,10 @@ div[data-tooltip]:after {
     
     #navlist a{
         font-size: 20px;
+    }
 
+    #navbar-placeholder {
+        border-bottom: 0px solid var(--primary);
     }
 
     .openmake img {
@@ -829,6 +849,28 @@ div[data-tooltip]:after {
         flex-flow: column;
     }
 
+    #challenges .grid{
+        display: flex;
+        flex-flow: column;
+    }
+
+    .cardholder{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card{
+        grid-column: span 1;
+    }
+
+    .card img {
+        height: 120px;
+    }
+
+    a .card img{
+        filter: grayscale(0);
+    }
+
     .pcol {
         flex-flow: column;
     }
@@ -857,6 +899,10 @@ div[data-tooltip]:after {
         color: var(--primary);
         font-size: 12px;
         width: auto;
+    }
+
+    #stepsContainer{
+        gap: 60px;
     }
 
     .order1 {

@@ -59,6 +59,7 @@ canvas {
     /* position: relative; */
     overflow: hidden;
     height: 360px;
+    cursor: zoom-in;
 }
 
 .carousel-item {

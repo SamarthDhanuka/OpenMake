@@ -122,6 +122,9 @@
 .fileLink {
     width: 100%;
     color: var(--link);
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 
@@ -277,5 +280,47 @@ canvas {
 #submission {
     position: fixed;
     bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    #submission {
+        grid-column: span 12;
+        position: static;
+        background-color: var(--white);
+        padding: 8px 0px;
+        width: 100%;
+        border-top: 0.5px solid var(--primary);
+        margin-top: 60px;
+    }
+
+    main{
+        padding-bottom: 0px;
+    }
+
+    #submission div{
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 40px;
+    }
+
+    #stepsContainer{
+        gap: 40px;
+    }
+
+    #content{
+        gap: 60px;
+    }
+
+    .col2{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .col2 img{
+        width: 100%;
+        height: auto;
+    }
 
 }

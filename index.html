@@ -44,18 +44,19 @@
                 </div>
             </div>
             <div id="navlist" class="flex bodytext acenter w100">
-                <a href="products.html" class="navitem" id="nav-products">Products</a>
+                <a href="nordiclogframe.html" class="navitem" id="nav-products">Demo Product</a>
                 <a href="upload.html" class="navitem" id="nav-upload">Upload</a>
-                <a href="licenses.html" class="navitem" id="nav-licenses">Licenses</a>
+                <a href="licenses.html" class="navitem disabled" id="nav-licenses">Licenses</a>
                 <a href="https://www.dsource.in/" class="navitem" id="nav-dsource">D'source</a>
-                <a href="signin.html" class="navitem" id="nav-signin">Sign in</a>
+                <a href="signin.html" class="navitem disabled" id="nav-signin">Sign in</a>
             </div>
         </nav>
     </div>
 
     <main class="flexcol acenter" style="max-width: 1600px; margin: auto;">
         <div class="w100">
-            <h1 class="subtext">Open Make is an initiative to empower DIY enthusiasts and small and medium enterprises to solve design
+            <h1 class="subtext">Open Make is an initiative to empower DIY enthusiasts and small and medium enterprises
+                to solve design
                 problems with the materials available in local hardware stores across India with simple tools and
                 processes.</h1>
         </div>
@@ -93,7 +94,7 @@
                 <h1>Categories</h1>
                 <a href="" class="link">View all</a>
             </div>
-            <div class="grid gap20">
+            <div class="grid cardholder gap20 ">
                 <div class="flexcol card span4">
                     <img src="images/categories/furniture.png" alt="" class="border1">
                     <div class="cardtext flex spacebetween">
@@ -174,7 +175,7 @@
                 <h1>Materials</h1>
                 <a href="" class="link">View all</a>
             </div>
-            <div class="grid gap20">
+            <div class="grid cardholder gap20">
                 <div class="flexcol card span4">
                     <img src="images/materials/solid wood1.png" alt="" class="border1">
                     <div class="cardtext flex spacebetween">
@@ -255,8 +256,8 @@
                 <h1>Products</h1>
                 <a href="" class="link">View all</a>
             </div>
-            <div class="grid gap20">
-                <a href="nordiclogframe.html" class="span4">
+            <div class="grid cardholder gap20">
+                <a href="nordiclogframe.html" class="span4 card">
                     <div class="flexcol card span4">
                         <img src="images/products/log.png" alt="" class="border1">
                         <div class="cardtext flex spacebetween">
@@ -335,6 +336,13 @@
             </div>
         </section>
     </main>
+
+    <script>
+        document.getElementById('navburger').addEventListener('click', function () {
+            this.classList.toggle('active');  // Toggle the parent class for visibility control
+            const nav = document.getElementsByTagName('nav')[0].classList.toggle('autoH');
+        });
+    </script>
     <footer>
 
     </footer>
