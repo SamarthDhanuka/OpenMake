@@ -11,6 +11,9 @@
     font-size: 20px;
     box-sizing: border-box;
 }
+b{
+    font-size: inherit;
+}
 
 main{
     max-width: 1920px;
